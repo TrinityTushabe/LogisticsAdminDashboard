@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <title>Logistics Admin Dashboard</title>
+    <style>
+        /* Light Mode Styles */
+        body {
+            background-color: #f3f2ef;
+            /* Light background color */
+            color: #283e4a;
+            /* Dark blue font color in light mode */
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-color: #283e4a;
+            /* Dark blue color for the toggle icon */
+        }
+
+        .navbar-light .navbar-toggler {
+            border-color: #283e4a;
+            /* Dark blue color for the toggle button border */
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: #283e4a;
+            /* Dark blue color for the nav links */
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #0073b1;
+            /* LinkedIn blue color on hover */
+        }
+
+        .navbar-light .navbar-toggler:hover {
+            background-color: #0073b1;
+            /* LinkedIn blue color on hover for the toggle icon */
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #283e4a;
+            /* Dark blue background color */
+            color: #ffffff;
+            /* White font color in dark mode */
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #ffffff;
+            /* White color for the toggle icon in dark mode */
+        }
+
+        .navbar-dark .navbar-toggler {
+            border-color: #ffffff;
+            /* White color for the toggle button border in dark mode */
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+            /* White color for the nav links in dark mode */
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #0073b1;
+            /* LinkedIn blue color on hover in dark mode */
+        }
+
+        .navbar-dark .navbar-toggler:hover {
+            background-color: #0073b1;
+            /* LinkedIn blue color on hover for the toggle icon in dark mode */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-linkedin">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <!-- Navbar items aligned to the right -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <!-- Add more navigation links as needed -->
+                </ul>
+
+                <!-- Toggle Switch for Dark and Light Mode -->
+                <div class="form-check form-switch mx-3">
+                    <input class="form-check-input" type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()" />
+                    <label class="form-check-label" for="darkModeToggle">
+                        <span id="darkModeToggleIcon"></span>
+                    </label>
+                </div>
+                <!-- Notification Settings Icon -->
+                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+
+                <!-- Placeholder for Profile Picture (Avatar) -->
+                <div class="profile-pic">
+                    <img src="./avatar.png" alt="Avatar" width="30" height="30" />
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>
+                <img src="logo2.jpg" alt="Logo" class="nav-logo" width="50" height="40" />
+            </h2>
+            <ul>
+                <li>
+                    <a href="#overview" onclick="showSection('overview')"><i class="fas fa-home"></i>Overview</a>
+                </li>
+                <li>
+                    <a href="#shipment-tracking" onclick="showSection('shipment-tracking')"><i
+                            class="fas fa-shipping-fast"></i>Shipment Tracking</a>
+                </li>
+                <li>
+                    <a href="#order-management" onclick="showSection('order-management')"><i
+                            class="fas fa-shopping-cart"></i>Order Management</a>
+                </li>
+                <li>
+                    <a href="#inventory-management" onclick="showSection('inventory-management')"><i
+                            class="fas fa-box"></i>Inventory Management</a>
+                </li>
+                <li>
+                    <a href="#driver-vehicle-management" onclick="showSection('driver-vehicle-management')"><i
+                            class="fas fa-truck"></i>Driver & Vehicle Management</a>
+                </li>
+                <li>
+                    <a href="#analytics-reports" onclick="showSection('analytics-reports')"><i
+                            class="fas fa-chart-bar"></i>Analytics & Reports</a>
+                </li>
+                <li>
+                    <a href="#user-management" onclick="showSection('user-management')"><i class="fas fa-users"></i>User
+                        Management</a>
+                </li>
+                <li>
+                    <a href="#notifications-alerts" onclick="showSection('notifications-alerts')"><i
+                            class="fas fa-bell"></i>Notifications & Alerts</a>
+                </li>
+                <li>
+                    <a href="#settings" onclick="showSection('settings')"><i class="fas fa-cogs"></i>Settings</a>
+                </li>
+                <li>
+                    <a href="#help-support" onclick="showSection('help-support')"><i
+                            class="fas fa-question-circle"></i>Help & Support</a>
+                </li>
+                <li>
+                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </li>
+                
+            </ul>
+            <div class="social_media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main_content">
+            <!-- Overview Section -->
+            <div id="overview" class="info">
+                <h1>Overview</h1>
+                <p>
+                    Welcome to the Logistics Admin Dashboard. Here's an overview of your
+                    logistics activities.
+                </p>
+
+                <!-- Statistics -->
+                <div class="overview-stats">
+                    <div class="stat-item">
+                        <h3>Total Shipments</h3>
+                        <p>485</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Orders Processed</h3>
+                        <p>750</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Inventory Items</h3>
+                        <p>2,500</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Deliveries Completed</h3>
+                        <p>350</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Active Drivers</h3>
+                        <p>25</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Customer Satisfaction</h3>
+                        <p>92%</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Revenue</h3>
+                        <p>$1,200,000</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Support Tickets</h3>
+                        <p>45</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Pending Orders</h3>
+                        <p>20</p>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="overview-actions">
+                    <button class="btn btn-primary">Create Shipment</button>
+                    <button class="btn btn-secondary">View Reports</button>
+                </div>
+            </div>
+            <!-- Shipment Tracking Section -->
+            <div id="shipment-tracking" class="info">
+                <h1>Shipment Tracking</h1>
+                <div class="shipment-list">
+                    <!-- Shipment #001 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #001</h3>
+                        <p>Status: In Transit</p>
+                        <p>Estimated Arrival: February 15, 2024</p>
+                    </div>
+
+                    <!-- Shipment #002 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #002</h3>
+                        <p>Status: Delivered</p>
+                        <p>Delivered on: February 10, 2024</p>
+                    </div>
+
+                    <!-- Repeat the pattern for the next 7 shipments -->
+                    <!-- Shipment #003 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #003</h3>
+                        <p>Status: In Transit</p>
+                        <p>Estimated Arrival: February 18, 2024</p>
+                    </div>
+
+                    <!-- Shipment #004 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #004</h3>
+                        <p>Status: Delivered</p>
+                        <p>Delivered on: February 12, 2024</p>
+                    </div>
+
+                    <!-- Shipment #005 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #005</h3>
+                        <p>Status: In Transit</p>
+                        <p>Estimated Arrival: February 20, 2024</p>
+                    </div>
+
+                    <!-- Shipment #006 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #006</h3>
+                        <p>Status: Delivered</p>
+                        <p>Delivered on: February 14, 2024</p>
+                    </div>
+
+                    <!-- Shipment #007 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #007</h3>
+                        <p>Status: In Transit</p>
+                        <p>Estimated Arrival: February 22, 2024</p>
+                    </div>
+
+                    <!-- Shipment #008 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #008</h3>
+                        <p>Status: Delivered</p>
+                        <p>Delivered on: February 16, 2024</p>
+                    </div>
+
+                    <!-- Shipment #009 -->
+                    <div class="shipment-item">
+                        <h3>Shipment #009</h3>
+                        <p>Status: In Transit</p>
+                        <p>Estimated Arrival: February 25, 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Management Section -->
+            <div id="order-management" class="info">
+                <h1>Order Management</h1>
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dummy Order Data -->
+                        <tr>
+                            <td>001</td>
+                            <td>John Doe</td>
+                            <td>Product A</td>
+                            <td>2</td>
+                            <td>$100.00</td>
+                            <td>Processing</td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Jane Smith</td>
+                            <td>Product B</td>
+                            <td>3</td>
+                            <td>$150.00</td>
+                            <td>Shipped</td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Jane Smith</td>
+                            <td>Product B</td>
+                            <td>3</td>
+                            <td>$150.00</td>
+                            <td>Shipped</td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Jane Smith</td>
+                            <td>Product B</td>
+                            <td>3</td>
+                            <td>$150.00</td>
+                            <td>Shipped</td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Jane Smith</td>
+                            <td>Product B</td>
+                            <td>3</td>
+                            <td>$150.00</td>
+                            <td>Shipped</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Inventory Management Section -->
+            <div id="inventory-management" class="info">
+                <h1>Inventory Management</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Product A</td>
+                            <td>100 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product B</td>
+                            <td>50 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product C</td>
+                            <td>75 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product D</td>
+                            <td>120 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product E</td>
+                            <td>90 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product F</td>
+                            <td>60 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product G</td>
+                            <td>110 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product H</td>
+                            <td>80 units</td>
+                        </tr>
+                        <tr>
+                            <td>Product I</td>
+                            <td>95 units</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Driver & Vehicle Management Section -->
+            <div id="driver-vehicle-management" class="info">
+                <h1>Driver & Vehicle Management</h1>
+
+                <!-- Dummy Data -->
+                <div class="driver-list">
+                    <div class="driver-item">
+                        <span class="driver-name">John Doe</span>
+                        <span class="driver-license">License: ABC123</span>
+                        <span class="vehicle-type">Vehicle Type: Truck</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Jane Smith</span>
+                        <span class="driver-license">License: XYZ456</span>
+                        <span class="vehicle-type">Vehicle Type: Van</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Bob Johnson</span>
+                        <span class="driver-license">License: DEF789</span>
+                        <span class="vehicle-type">Vehicle Type: Car</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Alice Brown</span>
+                        <span class="driver-license">License: GHI123</span>
+                        <span class="vehicle-type">Vehicle Type: Motorcycle</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Charlie Wilson</span>
+                        <span class="driver-license">License: JKL456</span>
+                        <span class="vehicle-type">Vehicle Type: Truck</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Eva Davis</span>
+                        <span class="driver-license">License: MNO789</span>
+                        <span class="vehicle-type">Vehicle Type: Van</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Samuel White</span>
+                        <span class="driver-license">License: PQR123</span>
+                        <span class="vehicle-type">Vehicle Type: Car</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Olivia Green</span>
+                        <span class="driver-license">License: STU456</span>
+                        <span class="vehicle-type">Vehicle Type: Motorcycle</span>
+                    </div>
+                    <div class="driver-item">
+                        <span class="driver-name">Daniel Miller</span>
+                        <span class="driver-license">License: VWX789</span>
+                        <span class="vehicle-type">Vehicle Type: Truck</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics & Reports Section -->
+            <div id="analytics-reports" class="info">
+                <h1>Analytics & Reports</h1>
+                <div class="analytics-chart">
+                    <!-- Placeholder for chart or analytics visualization -->
+                    <img src="chart.png" alt="Analytics Chart" />
+                </div>
+
+                <!-- Reports List -->
+                <div class="reports-list">
+                    <div class="report-item">
+                        <span class="report-title">Monthly Sales Report</span>
+                        <span class="report-date">Generated on: Jan 1, 2024</span>
+                    </div>
+                    <div class="report-item">
+                        <span class="report-title">Customer Engagement Analysis</span>
+                        <span class="report-date">Generated on: Jan 5, 2024</span>
+                    </div>
+                    <div class="report-item">
+                        <span class="report-title">Inventory Performance Overview</span>
+                        <span class="report-date">Generated on: Jan 10, 2024</span>
+                    </div>
+                    <!-- Add more report items as needed -->
+                </div>
+            </div>
+
+            <!-- User Management Section -->
+            <div id="user-management" class="info">
+                <h1>User Management</h1>
+                <!-- Dummy Data -->
+                <div class="user-list">
+                    <div class="user-item">
+                        <img src="user1.jpg" alt="User Avatar" class="user-avatar" />
+                        <div class="user-details">
+                            <span class="user-name">John Doe</span>
+                            <span class="user-role">Admin</span>
+                        </div>
+                    </div>
+                    <div class="user-item">
+                        <img src="user2.jpg" alt="User Avatar" class="user-avatar" />
+                        <div class="user-details">
+                            <span class="user-name">Jane Smith</span>
+                            <span class="user-role">Editor</span>
+                        </div>
+                    </div>
+                    <div class="user-item">
+                        <img src="user3.jpg" alt="User Avatar" class="user-avatar" />
+                        <div class="user-details">
+                            <span class="user-name">Robert Johnson</span>
+                            <span class="user-role">Viewer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications & Alerts Section -->
+            <div id="notifications-alerts" class="info">
+                <h1>Notifications & Alerts</h1>
+                <p>
+                    This is the notifications & alerts section. Add your content here.
+                </p>
+
+                <!-- Dummy Data -->
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <span class="notification-icon"><i class="fas fa-envelope"></i></span>
+                        <div class="notification-details">
+                            <span class="notification-message">New message from John Doe</span>
+                            <span class="notification-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <span class="notification-icon"><i class="fas fa-bell"></i></span>
+                        <div class="notification-details">
+                            <span class="notification-message">Reminder: Meeting at 3 PM</span>
+                            <span class="notification-time">Yesterday</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <span class="notification-icon"><i class="fas fa-check-circle"></i></span>
+                        <div class="notification-details">
+                            <span class="notification-message">Task completed successfully</span>
+                            <span class="notification-time">2 days ago</span>
+                        </div>
+                    </div>
+                    <!-- Add more notification items as needed -->
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings" class="info">
+                <h1>Settings</h1>
+                <p>This is the settings section. Add your content here.</p>
+
+                <!-- Dummy Data -->
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <span class="setting-icon"><i class="fas fa-cog"></i></span>
+                        <div class="setting-details">
+                            <span class="setting-name">General Settings</span>
+                            <span class="setting-description">Configure your general preferences</span>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <span class="setting-icon"><i class="fas fa-lock"></i></span>
+                        <div class="setting-details">
+                            <span class="setting-name">Security</span>
+                            <span class="setting-description">Manage your account security settings</span>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <span class="setting-icon"><i class="fas fa-bell"></i></span>
+                        <div class="setting-details">
+                            <span class="setting-name">Notifications</span>
+                            <span class="setting-description">Control your notification preferences</span>
+                        </div>
+                    </div>
+                    <!-- Add more settings items as needed -->
+                </div>
+            </div>
+
+            <!-- Help & Support Section -->
+            <div id="help-support" class="info">
+                <h1>Help & Support</h1>
+                <p>This is the help & support section. Add your content here.</p>
+
+                <!-- Dummy Data -->
+                <div class="help-support-list">
+                    <div class="help-support-item">
+                        <span class="help-support-icon"><i class="fas fa-question-circle"></i></span>
+                        <div class="help-support-details">
+                            <span class="help-support-title">Frequently Asked Questions</span>
+                            <span class="help-support-description">Find answers to common questions</span>
+                        </div>
+                    </div>
+                    <div class="help-support-item">
+                        <span class="help-support-icon"><i class="fas fa-headset"></i></span>
+                        <div class="help-support-details">
+                            <span class="help-support-title">Contact Us</span>
+                            <span class="help-support-description">Reach out for personalized assistance</span>
+                        </div>
+                    </div>
+                    <div class="help-support-item">
+                        <span class="help-support-icon"><i class="fas fa-comments"></i></span>
+                        <div class="help-support-details">
+                            <span class="help-support-title">Live Chat</span>
+                            <span class="help-support-description">Chat with our support team in real-time</span>
+                        </div>
+                    </div>
+                    <!-- Add more help & support items as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.querySelector('.navbar');
+            const sidebar = document.querySelector('.sidebar');
+        
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+        
+                // Add or remove the "sticky" class based on scroll position
+                if (scrollTop > navbar.offsetTop) {
+                    navbar.classList.add('sticky');
+                    sidebar.classList.add('sticky');
+                } else {
+                    navbar.classList.remove('sticky');
+                    sidebar.classList.remove('sticky');
+                }
+            });
+        });
+        
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Set initial dark mode state from localStorage
+            const isDarkMode = localStorage.getItem("darkMode") === "true";
+            initializeDarkMode(isDarkMode);
+        
+            // Hide all sections except "Overview" initially
+            const sections = document.querySelectorAll(".info");
+            sections.forEach((section) => {
+                section.style.display = "none";
+            });
+        
+            // Display the "Overview" section
+            const overviewSection = document.getElementById("overview");
+            if (overviewSection) {
+                overviewSection.style.display = "block";
+            }
+        });
+        
+    
+        function initializeDarkMode(isDarkMode) {
+            setDarkMode(isDarkMode);
+            updateColors(isDarkMode);
+        }
+    
+        function toggleDarkMode() {
+            const isDarkMode = document.body.classList.toggle("dark-mode");
+    
+            // Store the dark mode state in localStorage
+            localStorage.setItem("darkMode", isDarkMode);
+    
+            // Update font color and navbar colors based on the dark mode state
+            updateColors(isDarkMode);
+        }
+    
+        function setDarkMode(isDarkMode) {
+            // Set dark mode based on the provided state
+            document.body.classList.toggle("dark-mode", isDarkMode);
+    
+            // Update the dark mode toggle icon
+            const darkModeToggleIcon = document.getElementById("darkModeToggleIcon");
+            if (darkModeToggleIcon) {
+                darkModeToggleIcon.innerHTML = isDarkMode
+                    ? '<i class="fas fa-moon"></i>' // Moon icon for dark mode
+                    : '<i class="fas fa-sun"></i>'; // Sun icon for light mode
+            }
+        }
+    
+        function updateColors(isDarkMode) {
+            // Update font color and navbar colors based on the dark mode state
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.classList.toggle('navbar-dark', isDarkMode);
+                navbar.classList.toggle('navbar-light', !isDarkMode);
+            }
+        }
+    
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll(".info");
+            sections.forEach((section) => {
+                section.style.display = "none";
+            });
+    
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

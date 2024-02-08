@@ -1,0 +1,382 @@
+body {
+  background-color: #f3f2ef;
+  color: #283e4a;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.navbar {
+  background-color: #283e4a;
+  transition: background-color 0.5s;
+}
+
+.navbar-toggler-icon,
+.navbar-toggler {
+  background-color: #ffffff;
+  transition: background-color 0.5s;
+}
+
+.navbar-nav .nav-link {
+  color: #283e4a;
+  transition: color 0.5s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0073b1;
+  transition: color 0.5s;
+}
+
+.navbar-toggler:hover {
+  background-color: #0073b1;
+  transition: background-color 0.5s;
+}
+
+.dark-mode {
+  background-color: #283e4a;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.sidebar {
+  background-color: #283e4a;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.sidebar h2 {
+  color: #ffffff;
+}
+
+.sidebar a {
+  color: #ffffff;
+  transition: color 0.5s;
+}
+
+.sidebar a:hover {
+  color: #0073b1;
+  transition: color 0.5s;
+}
+
+.main_content {
+  transition: margin-left 0.5s;
+}
+
+.info {
+  background-color: #ffffff;
+  color: #283e4a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.btn-primary,
+.btn-secondary {
+  background-color: #0073b1;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: #005685;
+  transition: background-color 0.5s;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #0073b1;
+  border: 1px solid #0073b1;
+  transition: background-color 0.5s, color 0.5s, border 0.5s;
+}
+
+.btn-secondary:hover {
+  background-color: #0073b1;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s, border 0.5s;
+}
+
+/* Sticky Navigation Bar */
+.navbar {
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Sticky Sidebar */
+.sidebar.sticky {
+  position: fixed;
+  top: 0;
+  height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  background-color: #283e4a; /* Dark blue background color */
+  transition: width 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sidebar ul li {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #0073b1;
+  flex-grow: 1;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  display: block;
+  transition: color 0.5s;
+}
+
+.sidebar ul li a:hover {
+  color: #0073b1;
+  transition: color 0.5s;
+}
+
+.sidebar h2 {
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  background-color: #0073b1; /* LinkedIn blue background color */
+}
+
+/* Main Content */
+.main_content {
+  margin-left: 250px;
+  transition: margin-left 0.5s;
+}
+
+/* Overview Section */
+.overview-stats,
+.overview-actions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.stat-item,
+.overview-actions button {
+  width: 30%;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.stat-item:hover,
+.overview-actions button:hover {
+  background-color: #0073b1;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Shipment Tracking Section */
+.shipment-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.shipment-item {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #0073b1;
+  border-radius: 5px;
+}
+
+/* Order Management Section */
+.order-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.order-table th,
+.order-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #0073b1;
+}
+
+/* Inventory Management Section */
+.table th,
+.table td {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Driver & Vehicle Management Section */
+.driver-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.driver-item {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #0073b1;
+  border-radius: 5px;
+}
+
+/* Analytics & Reports Section */
+.analytics-chart {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.reports-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.report-item {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #0073b1;
+  border-radius: 5px;
+}
+
+/* User Management Section */
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-item {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #0073b1;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* Notifications & Alerts Section */
+.notification-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.notification-item {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #0073b1;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.notification-icon {
+  margin-right: 15px;
+  color: #0073b1;
+}
+
+/* Settings Section */
+.settings-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.setting-item {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #0073b1;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.setting-icon {
+  margin-right: 15px;
+  color: #0073b1;
+}
+
+/* Help & Support Section */
+.help-support-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.help-support-item {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #0073b1;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.help-support-icon {
+  margin-right: 15px;
+  color: #0073b1;
+}
+
+/* Center-align the social media icons */
+.social_media {
+  text-align: center;
+}
+
+.social_media a {
+  display: inline-block;
+  margin: 0 10px; /* Adjust the margin as needed */
+}
+
+
+/* Angle Connector */
+.navbar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 30px; /* Adjust the width as needed */
+  background-color: #283e4a; /* Dark blue background color */
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+/* Shadow Effect */
+.navbar,
+.sidebar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties as needed */
+}
